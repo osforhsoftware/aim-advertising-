@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Evaluation & 520+ Staff Highlight Strip (AIM IAC Homepage)
+   Matches FocusStory width (1360px) and aimiac.com 3-card stretched layout
+   ========================================================================== */
+
+.evaluation-strip-section {
+  background-color: #ffffff;
+  padding: 0.5rem 0 3.25rem;
+}
+
+.evaluation-strip-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.evaluation-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+/* Left & Right Navy Free Evaluation Cards */
+.evaluation-card-navy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #092242;
+  border-radius: 24px;
+  min-height: 245px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(9, 34, 66, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.65rem 1rem;
+}
+
+.evaluation-card-navy:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(9, 34, 66, 0.18);
+}
+
+.evaluation-svg {
+  width: 100%;
+  height: 100%;
+  max-height: 235px;
+  display: block;
+}
+
+/* Center Teal 520+ Counter Card */
+.evaluation-card-teal {
+  background-color: #31a49c;
+  border-radius: 24px;
+  min-height: 245px;
+  padding: 2.25rem 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 28px rgba(49, 164, 156, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.evaluation-card-teal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(49, 164, 156, 0.28);
+}
+
+.evaluation-counter-wrap {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-family: var(--font-heading, 'Quicksand', sans-serif);
+}
+
+.evaluation-counter-digits {
+  font-size: clamp(4.5rem, 5.2vw, 5.75rem);
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1.75px #ffffff;
+  letter-spacing: -2px;
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums;
+}
+
+.evaluation-counter-plus {
+  font-size: clamp(3.75rem, 4.4vw, 4.9rem);
+  font-weight: 800;
+  color: #001837;
+  margin-left: 4px;
+  line-height: 0.9;
+}
+
+.evaluation-counter-caption {
+  color: #ffffff;
+  font-family: var(--font-body, 'Open Sans', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .evaluation-strip-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .evaluation-card-navy,
+  .evaluation-card-teal {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 640px) {
+  .evaluation-strip-container {
+    padding: 0 1rem;
+  }
+}

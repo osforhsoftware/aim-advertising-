@@ -1,0 +1,279 @@
+/* AIM IAC Header - Clean Modern Style Matching aimiac.com */
+.site-header {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 24, 55, 0.05);
+  transition: all 0.3s ease;
+}
+
+.site-header.is-sticky {
+  position: sticky;
+  top: 0;
+  box-shadow: 0 4px 25px rgba(0, 24, 55, 0.09);
+  animation: headerSlideDown 0.3s ease;
+}
+
+@keyframes headerSlideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.header-main-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 96px;
+  transition: height 0.3s ease;
+}
+
+.site-header.is-sticky .header-main-content {
+  height: 82px;
+}
+
+/* Brand Logo */
+.header-logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo-img {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  transition: height 0.3s ease;
+}
+
+.site-header.is-sticky .header-logo-img {
+  height: 46px;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  font-family: var(--font-heading, 'Quicksand', sans-serif);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #243056;
+  padding: 1rem 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #31a49c;
+}
+
+/* Dropdown Menu */
+.has-dropdown {
+  position: relative;
+}
+
+.has-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -1rem;
+  min-width: 270px;
+  background-color: #ffffff;
+  border-top: 3px solid #31a49c;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 12px 35px rgba(0, 24, 55, 0.12);
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 100;
+}
+
+.dropdown-item a {
+  display: block;
+  padding: 0.65rem 1.25rem;
+  font-family: var(--font-body, 'Open Sans', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #243056;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f1f4f8;
+  text-decoration: none;
+}
+
+.dropdown-item:last-child a {
+  border-bottom: none;
+}
+
+.dropdown-item a:hover {
+  background-color: #f8fafc;
+  color: #31a49c;
+  padding-left: 1.5rem;
+}
+
+/* Header Right Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Phone link with circular teal icon */
+.header-phone-box {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.phone-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #31a49c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.header-phone-box:hover .phone-circle {
+  transform: scale(1.05);
+  background-color: #27857e;
+}
+
+.phone-text {
+  font-family: var(--font-heading, 'Quicksand', sans-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #243056;
+}
+
+/* Search icon button */
+.header-search-btn {
+  background: none;
+  border: none;
+  color: #243056;
+  cursor: pointer;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.header-search-btn:hover {
+  color: #31a49c;
+  transform: scale(1.1);
+}
+
+/* Dark Navy Pill Button "Get A Quote ↗" */
+.header-quote-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: #1e2942;
+  color: #ffffff;
+  padding: 0.75rem 1.6rem;
+  border-radius: 50px;
+  font-family: var(--font-heading, 'Quicksand', sans-serif);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(30, 41, 66, 0.15);
+}
+
+.header-quote-pill:hover {
+  background-color: #31a49c;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(49, 164, 156, 0.35);
+}
+
+/* Mobile Toggle */
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background-color: #f1f4f8;
+  color: #243056;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-toggle:hover {
+  background-color: #31a49c;
+  color: #ffffff;
+}
+
+@media (max-width: 1080px) {
+  .nav-list {
+    gap: 1.5rem;
+  }
+  .phone-text {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .desktop-nav {
+    display: none;
+  }
+  .header-phone-box {
+    display: none;
+  }
+  .header-search-btn {
+    display: none;
+  }
+  .header-quote-pill {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.8rem;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .header-main-content {
+    height: 75px;
+  }
+}

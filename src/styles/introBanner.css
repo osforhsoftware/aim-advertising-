@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Welcome Banner Section (AIM IAC Homepage)
+   Exact match to design screenshot:
+   Soft mint card with top-left decorative circle, bold navy heading on left,
+   and two balanced editorial paragraphs on right.
+   ========================================================================== */
+
+.welcome-banner-section {
+  padding: 3.5rem 0;
+  background-color: var(--color-light-bg, #f0f2f4);
+  position: relative;
+}
+
+/* Floating Card Container */
+.welcome-banner-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background-color: #f2f8f8;
+  padding: 4.5rem 4.5rem;
+  box-shadow: 0 10px 30px rgba(0, 24, 55, 0.04);
+  border: 1px solid rgba(49, 164, 156, 0.12);
+}
+
+/* Decorative soft circle at top-left corner matching screenshot */
+.welcome-banner-circle-decor {
+  position: absolute;
+  top: -85px;
+  left: -85px;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  background-color: #dceeed;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 2-Column Grid (Left: Heading, Right: Paragraphs) */
+.welcome-banner-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+/* Left Column: Bold Navy Heading */
+.welcome-banner-heading {
+  font-family: var(--font-heading, 'Quicksand', sans-serif);
+  font-size: clamp(2rem, 3.1vw, 2.85rem);
+  font-weight: 700;
+  color: #0b1e36;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  margin: 0;
+  max-width: 440px;
+}
+
+/* Right Column: Text Container */
+.welcome-banner-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-banner-p {
+  font-family: var(--font-body, 'Open Sans', sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #4b5868;
+  margin: 0 0 1.75rem 0;
+}
+
+.welcome-banner-p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive: Tablet */
+@media (max-width: 991px) {
+  .welcome-banner-card {
+    padding: 3.5rem 2.5rem;
+    border-radius: 24px;
+  }
+
+  .welcome-banner-grid {
+    gap: 2.75rem;
+  }
+
+  .welcome-banner-heading {
+    font-size: 2.15rem;
+    max-width: 100%;
+  }
+
+  .welcome-banner-p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 767px) {
+  .welcome-banner-section {
+    padding: 2.5rem 0;
+  }
+
+  .welcome-banner-card {
+    padding: 2.5rem 1.75rem 2.25rem;
+    border-radius: 20px;
+  }
+
+  .welcome-banner-circle-decor {
+    width: 180px;
+    height: 180px;
+    top: -55px;
+    left: -55px;
+  }
+
+  .welcome-banner-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .welcome-banner-heading {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+
+  .welcome-banner-p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+}

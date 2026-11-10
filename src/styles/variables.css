@@ -1,0 +1,44 @@
+:root {
+  /* Brand Color Palette */
+  --color-primary: #31a49c;
+  --color-primary-rgb: 49, 164, 156;
+  --color-primary-hover: #298c85;
+  --color-primary-light: rgba(49, 164, 156, 0.1);
+  --color-secondary: #232e56;
+  --color-secondary-rgb: 35, 46, 86;
+  --color-dark: #001837;
+  --color-text: #565656;
+  --color-text-light: #777777;
+  --color-heading: #001837;
+  --color-light-bg: #f0f2f4;
+  --color-white: #ffffff;
+  --color-border: #e6e8eb;
+  --color-dark-bg: #001837;
+
+  /* Typography */
+  --font-heading: 'Quicksand', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Layout */
+  --container-width: 1200px;
+  --header-height: 100px;
+  --header-sticky-height: 80px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Box Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 24, 55, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 24, 55, 0.08);
+  --shadow-lg: 0 16px 36px rgba(0, 24, 55, 0.12);
+  --shadow-hover: 0 16px 40px rgba(49, 164, 156, 0.18);
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+}
+

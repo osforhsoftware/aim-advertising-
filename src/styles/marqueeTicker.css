@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Marquee Ticker (AIM IAC Homepage)
+   Exact match to aimiac.com:
+   Outlined large stroke typography with teal star separators (✦)
+   ========================================================================== */
+
+.marquee-ticker-wrap {
+  background-color: var(--color-light-bg, #f0f2f4);
+  padding: 1.25rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  position: relative;
+  user-select: none;
+}
+
+.marquee-ticker-track {
+  display: inline-flex;
+  align-items: center;
+  animation: marqueeScroll 45s linear infinite;
+  will-change: transform;
+}
+
+.marquee-ticker-wrap:hover .marquee-ticker-track {
+  animation-play-state: paused;
+}
+
+.marquee-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.25rem;
+  padding: 0 1.25rem;
+}
+
+.marquee-ticker-text {
+  font-family: var(--font-heading, 'Quicksand', sans-serif);
+  font-size: 3.25rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0, 24, 55, 0.22);
+  transition: all 0.3s ease;
+}
+
+.marquee-ticker-text:hover {
+  -webkit-text-stroke-color: var(--color-primary, #31a49c);
+  color: rgba(49, 164, 156, 0.08);
+}
+
+.marquee-ticker-star {
+  color: var(--color-primary, #31a49c);
+  font-size: 2.25rem;
+  line-height: 1;
+  display: inline-block;
+  transform: translateY(-2px);
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-ticker-wrap {
+    padding: 0.85rem 0;
+  }
+
+  .marquee-ticker-text {
+    font-size: 2.35rem;
+    -webkit-text-stroke-width: 1.25px;
+  }
+
+  .marquee-ticker-star {
+    font-size: 1.65rem;
+  }
+
+  .marquee-ticker-item {
+    gap: 1.5rem;
+    padding: 0 0.85rem;
+  }
+}
+
