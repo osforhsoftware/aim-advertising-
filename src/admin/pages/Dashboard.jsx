@@ -63,13 +63,13 @@ const Dashboard = () => {
   return (
     <div>
       {/* Top Banner & Refresh */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-        <div>
-          <h2 style={{ fontSize: '1.25rem', color: '#001837' }}>Welcome back to AIM IAC CMS</h2>
-          <p style={{ fontSize: '0.85rem', color: '#64748b' }}>Here is an overview of website operations and recent customer activity.</p>
+      <div className="dashboard-welcome">
+        <div className="dashboard-welcome-text">
+          <h2>Welcome back to AIM IAC CMS</h2>
+          <p>Here is an overview of website operations and recent customer activity.</p>
         </div>
         <button
-          className="btn btn-secondary btn-sm"
+          className="btn btn-secondary btn-sm dashboard-refresh-btn"
           onClick={() => fetchDashboardData(true)}
           disabled={refreshing || loading}
           title="Refresh live data"
@@ -127,24 +127,24 @@ const Dashboard = () => {
       </div>
 
       {/* Quick Action Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.25rem', marginBottom: '1.75rem' }}>
-        <div className="card" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div>
-            <h4 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>Manage Services</h4>
-            <p style={{ fontSize: '0.82rem', color: '#64748b' }}>Edit descriptions, update images, and publish new offerings.</p>
+      <div className="quick-actions-grid">
+        <div className="card quick-action-card">
+          <div className="quick-action-info">
+            <h4>Manage Services</h4>
+            <p>Edit descriptions, update images, and publish new offerings.</p>
           </div>
-          <Link to="/admin/services" className="btn btn-primary btn-sm">
+          <Link to="/admin/services" className="btn btn-primary btn-sm quick-action-btn">
             <span>View</span>
             <ArrowRight size={14} />
           </Link>
         </div>
 
-        <div className="card" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div>
-            <h4 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>Review Enquiries</h4>
-            <p style={{ fontSize: '0.82rem', color: '#64748b' }}>Follow up on quote requests and customer inquiries.</p>
+        <div className="card quick-action-card">
+          <div className="quick-action-info">
+            <h4>Review Enquiries</h4>
+            <p>Follow up on quote requests and customer inquiries.</p>
           </div>
-          <Link to="/admin/enquiries" className="btn btn-primary btn-sm">
+          <Link to="/admin/enquiries" className="btn btn-primary btn-sm quick-action-btn">
             <span>View</span>
             <ArrowRight size={14} />
           </Link>
@@ -162,7 +162,7 @@ const Dashboard = () => {
         </div>
 
         <div className="table-responsive">
-          <table className="admin-table">
+          <table className="admin-table mobile-card-table">
             <thead>
               <tr>
                 <th>Customer Name</th>
@@ -175,13 +175,13 @@ const Dashboard = () => {
             </thead>
             <tbody>
               {loading ? (
-                <tr>
+                <tr className="table-state-row">
                   <td colSpan="6" style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }}>
                     Loading recent enquiries from database...
                   </td>
                 </tr>
               ) : recentEnquiries.length === 0 ? (
-                <tr>
+                <tr className="table-state-row">
                   <td colSpan="6" style={{ textAlign: 'center', padding: '2rem', color: '#94a3b8' }}>
                     No customer enquiries received yet.
                   </td>
@@ -189,18 +189,18 @@ const Dashboard = () => {
               ) : (
                 recentEnquiries.map((enq) => (
                   <tr key={enq.id}>
-                    <td>
+                    <td className="cell-main">
                       <div style={{ fontWeight: 600, color: '#001837' }}>{enq.name}</div>
-                      <div style={{ fontSize: '0.78rem', color: '#64748b' }}>{enq.email}</div>
+                      <div style={{ fontSize: '0.78rem', color: '#64748b', wordBreak: 'break-word' }}>{enq.email}</div>
                     </td>
-                    <td>{enq.phone}</td>
-                    <td>
+                    <td data-label="Phone">{enq.phone}</td>
+                    <td data-label="Service">
                       <span style={{ fontSize: '0.85rem', fontWeight: 500 }}>
                         {enq.service_name || 'General Inquiry'}
                       </span>
                     </td>
-                    <td>{getStatusBadge(enq.status)}</td>
-                    <td style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                    <td data-label="Status">{getStatusBadge(enq.status)}</td>
+                    <td data-label="Received" style={{ fontSize: '0.8rem', color: '#64748b' }}>
                       {new Date(enq.created_at).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
@@ -209,7 +209,7 @@ const Dashboard = () => {
                         minute: '2-digit',
                       })}
                     </td>
-                    <td style={{ textAlign: 'right' }}>
+                    <td className="cell-actions" style={{ textAlign: 'right' }}>
                       <Link to="/admin/enquiries" className="btn btn-secondary btn-sm" title="View details in Enquiries module">
                         <Eye size={13} />
                         <span>Inspect</span>

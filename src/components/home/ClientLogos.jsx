@@ -190,7 +190,20 @@ const ClientLogos = () => {
         }
         @media (max-width: 640px) {
           .client-logos-card {
-            padding: 2.5rem 1.25rem 2rem !important;
+            padding: 1.75rem 1.15rem 1.5rem !important;
+            border-radius: 18px !important;
+          }
+          .client-logos-card h2 {
+            font-size: 1.65rem !important;
+            margin-bottom: 1.25rem !important;
+          }
+          .client-logo-box {
+            height: 86px !important;
+            border-radius: 14px !important;
+            padding: 0.75rem !important;
+          }
+          .client-logo-box img {
+            max-height: 38px !important;
           }
         }
       `}</style>

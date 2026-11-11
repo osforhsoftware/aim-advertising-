@@ -277,3 +277,31 @@
     height: 75px;
   }
 }
+
+@media (max-width: 520px) {
+  .header-main-content {
+    height: 68px;
+  }
+  .site-header.is-sticky .header-main-content {
+    height: 64px;
+  }
+  .header-logo-img {
+    height: 40px;
+  }
+  .site-header.is-sticky .header-logo-img {
+    height: 36px;
+  }
+  .header-actions {
+    gap: 0.65rem;
+  }
+  .header-quote-pill {
+    padding: 0.5rem 0.95rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .header-quote-pill {
+    display: none;
+  }
+}

@@ -204,16 +204,7 @@ const ServiceDetail = () => {
               AIM Advertising Service
             </span>
 
-            <h1
-              style={{
-                color: '#ffffff',
-                fontSize: '2.75rem',
-                lineHeight: '1.2',
-                marginBottom: '1.25rem',
-                fontFamily: 'var(--font-heading)',
-                textTransform: 'uppercase'
-              }}
-            >
+            <h1 className="service-detail-hero-title">
               {service.tagline}
             </h1>
 
@@ -246,6 +237,7 @@ const ServiceDetail = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
+              flexWrap: 'wrap',
               gap: '0.5rem',
               fontSize: '0.875rem',
               color: 'var(--color-text-light)',
@@ -269,13 +261,7 @@ const ServiceDetail = () => {
       {/* 3. Main Content & Features */}
       <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
         <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '2fr 1fr',
-              gap: '3.5rem'
-            }}
-          >
+          <div className="service-detail-grid">
             {/* Left Column: Full Description & Features */}
             <div>
               <span className="section-kicker">Service Overview</span>
@@ -681,13 +667,7 @@ const ServiceDetail = () => {
               <form
                 onSubmit={handleFormSubmit}
                 noValidate
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  backdropFilter: 'blur(10px)',
-                  padding: '2.5rem',
-                  borderRadius: 'var(--radius-lg)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
+                className="service-detail-quote-form"
               >
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
                   {/* Name */}

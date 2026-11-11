@@ -126,7 +126,7 @@ const EnquiriesManager = () => {
   return (
     <div>
       <div className="table-toolbar">
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', flex: 1 }}>
+        <div className="toolbar-controls">
           <div className="search-box">
             <Search size={16} className="search-icon" />
             <input
@@ -137,11 +137,10 @@ const EnquiriesManager = () => {
             />
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div className="filter-select-wrap">
             <Filter size={16} color="#64748b" />
             <select
-              className="form-control"
-              style={{ width: 'auto', padding: '0.45rem 0.85rem' }}
+              className="form-control filter-select"
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
             >
@@ -163,7 +162,7 @@ const EnquiriesManager = () => {
         </div>
 
         <div className="table-responsive">
-          <table className="admin-table">
+          <table className="admin-table mobile-card-table">
             <thead>
               <tr>
                 <th>Customer</th>
@@ -177,13 +176,13 @@ const EnquiriesManager = () => {
             </thead>
             <tbody>
               {loading ? (
-                <tr>
+                <tr className="table-state-row">
                   <td colSpan="7" style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}>
                     Loading enquiries from database...
                   </td>
                 </tr>
               ) : filteredEnquiries.length === 0 ? (
-                <tr>
+                <tr className="table-state-row">
                   <td colSpan="7" style={{ textAlign: 'center', padding: '2.5rem', color: '#94a3b8' }}>
                     No customer enquiries found matching the criteria.
                   </td>
@@ -191,35 +190,35 @@ const EnquiriesManager = () => {
               ) : (
                 filteredEnquiries.map((enq) => (
                   <tr key={enq.id}>
-                    <td>
+                    <td className="cell-main">
                       <div style={{ fontWeight: 600, color: '#001837' }}>{enq.name}</div>
-                      <div style={{ fontSize: '0.78rem', color: '#64748b' }}>{enq.email}</div>
+                      <div style={{ fontSize: '0.78rem', color: '#64748b', overflowWrap: 'anywhere' }}>{enq.email}</div>
                     </td>
-                    <td>
+                    <td data-label="Phone">
                       <a href={`tel:${enq.phone}`} style={{ color: '#001837', fontWeight: 500 }}>
                         {enq.phone}
                       </a>
                     </td>
-                    <td>
+                    <td data-label="Service">
                       <span style={{ fontWeight: 500 }}>
                         {enq.service_name || 'General Inquiry'}
                       </span>
                     </td>
-                    <td style={{ maxWidth: '280px', fontSize: '0.82rem', color: '#475569' }}>
+                    <td className="cell-block" data-label="Message" style={{ maxWidth: '280px', fontSize: '0.82rem', color: '#475569' }}>
                       <p style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                         {enq.message}
                       </p>
                     </td>
-                    <td>{getStatusBadge(enq.status)}</td>
-                    <td style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                    <td data-label="Status">{getStatusBadge(enq.status)}</td>
+                    <td data-label="Submitted" style={{ fontSize: '0.8rem', color: '#64748b' }}>
                       {new Date(enq.created_at).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
                         year: 'numeric',
                       })}
                     </td>
-                    <td style={{ textAlign: 'right' }}>
-                      <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.4rem' }}>
+                    <td className="cell-actions" style={{ textAlign: 'right' }}>
+                      <div className="cell-action-group">
                         <button
                           type="button"
                           className="btn btn-secondary btn-sm"
@@ -227,6 +226,7 @@ const EnquiriesManager = () => {
                           title="View Full Details"
                         >
                           <Eye size={13} />
+                          <span className="mobile-btn-label">View</span>
                         </button>
                         <button
                           type="button"
@@ -235,6 +235,7 @@ const EnquiriesManager = () => {
                           title="Delete Enquiry"
                         >
                           <Trash2 size={13} />
+                          <span className="mobile-btn-label">Delete</span>
                         </button>
                       </div>
                     </td>
@@ -264,7 +265,7 @@ const EnquiriesManager = () => {
             </div>
             <div className="modal-body">
               <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', marginBottom: '1.25rem', border: '1px solid #e2e8f0' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="admin-form-grid-2">
                   <div>
                     <span style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Customer Name</span>
                     <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#001837' }}>{selectedEnquiry.name}</div>
@@ -276,8 +277,8 @@ const EnquiriesManager = () => {
                   <div>
                     <span style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 700 }}>Email Address</span>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.2rem' }}>
-                      <Mail size={14} color="#31a49c" />
-                      <a href={`mailto:${selectedEnquiry.email}`} style={{ color: '#31a49c', fontWeight: 500 }}>
+                      <Mail size={14} color="#31a49c" style={{ flexShrink: 0 }} />
+                      <a href={`mailto:${selectedEnquiry.email}`} style={{ color: '#31a49c', fontWeight: 500, overflowWrap: 'anywhere' }}>
                         {selectedEnquiry.email}
                       </a>
                     </div>
@@ -312,17 +313,18 @@ const EnquiriesManager = () => {
                   lineHeight: '1.6',
                   color: '#1e293b',
                   marginTop: '0.4rem',
-                  whiteSpace: 'pre-wrap'
+                  whiteSpace: 'pre-wrap',
+                  overflowWrap: 'anywhere'
                 }}>
                   {selectedEnquiry.message}
                 </div>
               </div>
 
-              <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #e2e8f0' }}>
-                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#001837', display: 'block', marginBottom: '0.5rem' }}>
+              <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid #e2e8f0' }}>
+                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#001837', display: 'block', marginBottom: '0.6rem' }}>
                   Update Workflow Status:
                 </span>
-                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <div className="enquiry-status-actions">
                   <button
                     type="button"
                     className={`btn btn-sm ${selectedEnquiry.status === 'pending' ? 'btn-primary' : 'btn-secondary'}`}

@@ -104,18 +104,49 @@
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
   .evaluation-strip-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1.25rem;
+  }
+
+  .evaluation-strip-grid > .evaluation-card-navy:last-child {
+    display: none;
   }
 
   .evaluation-card-navy,
   .evaluation-card-teal {
-    min-height: 220px;
+    min-height: 210px;
   }
 }
 
 @media (max-width: 640px) {
+  .evaluation-strip-section {
+    padding: 0.25rem 0 2.25rem;
+  }
   .evaluation-strip-container {
     padding: 0 1rem;
+  }
+  .evaluation-strip-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .evaluation-card-navy,
+  .evaluation-card-teal {
+    min-height: 175px;
+    border-radius: 18px;
+  }
+  .evaluation-svg {
+    max-height: 170px;
+  }
+  .evaluation-card-teal {
+    padding: 1.5rem 1.35rem;
+  }
+  .evaluation-counter-digits {
+    font-size: 3.5rem;
+  }
+  .evaluation-counter-plus {
+    font-size: 2.9rem;
+  }
+  .evaluation-counter-caption {
+    font-size: 0.875rem;
   }
 }

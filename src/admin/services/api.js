@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { API_BASE_URL, getImageUrl } from '../../services/servicesApi';
 
 // Base API client
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost/aimiac-backend',
+  baseURL: API_BASE_URL,
   withCredentials: true,
   headers: {
     'Accept': 'application/json',
@@ -19,22 +20,8 @@ export const initCsrf = async () => {
   }
 };
 
-// Format image URL whether it's local static asset or backend upload
-export const getImageUrl = (path) => {
-  if (!path) return '';
-  if (
-    path.startsWith('http://') ||
-    path.startsWith('https://') ||
-    path.startsWith('blob:') ||
-    path.startsWith('data:')
-  ) {
-    return path;
-  }
-  const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost/aimiac-backend';
-  const cleanBase = baseUrl.replace(/\/+$/, '');
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  return `${cleanBase}${cleanPath}`;
-};
+// Re-export shared image URL resolver (handles /uploads/ via backend and /assets/ via frontend)
+export { getImageUrl };
 
 // Upload an image file to the PHP backend
 export const uploadImage = async (file) => {

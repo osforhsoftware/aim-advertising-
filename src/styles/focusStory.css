@@ -152,35 +152,47 @@
 /* Responsive: Mobile */
 @media (max-width: 640px) {
   .focus-story-section {
-    padding: 2.75rem 0 3.25rem;
+    padding: 2rem 0 2.25rem;
   }
 
   .focus-story-container {
     padding: 0 1rem;
   }
 
+  .focus-story-grid {
+    gap: 1.5rem;
+  }
+
+  .focus-story-image-wrap {
+    min-height: 215px;
+    max-height: 245px;
+    border-radius: 16px;
+  }
+
   .focus-story-card {
-    padding: 2.25rem 1.5rem;
-    border-radius: 18px;
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
   }
 
   .focus-story-heading {
-    font-size: 1.75rem;
-    margin-bottom: 1.25rem;
+    font-size: 1.4rem;
+    line-height: 1.28;
+    margin-bottom: 1rem;
   }
 
   .focus-story-desc,
   .focus-story-secondary-desc {
-    font-size: 0.95rem;
-    line-height: 1.65;
-    margin-bottom: 1.35rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
   }
 
   .focus-story-subheading {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
   }
 
   .focus-story-check-text {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }

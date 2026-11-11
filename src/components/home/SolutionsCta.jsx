@@ -74,10 +74,12 @@ const SolutionsCta = () => {
       <style>{`
         @media (max-width: 768px) {
           .solutions-cta-card {
-            padding: 2rem !important;
+            padding: 1.75rem 1.35rem !important;
+            border-radius: 18px !important;
           }
           .solutions-cta-card h2 {
-            fontSize: 1.75rem !important;
+            font-size: 1.6rem !important;
+            margin-bottom: 1rem !important;
           }
         }
       `}</style>

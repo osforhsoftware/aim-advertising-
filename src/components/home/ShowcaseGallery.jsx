@@ -33,6 +33,7 @@ const ShowcaseGallery = () => {
     <section style={{ padding: '2rem 0', backgroundColor: '#f0f2f4' }}>
       <div className="container">
         <div
+          className="showcase-gallery-wrapper"
           style={{
             backgroundColor: '#1e2942',
             borderRadius: '28px',
@@ -89,8 +90,17 @@ const ShowcaseGallery = () => {
           }
         }
         @media (max-width: 575px) {
+          .showcase-gallery-wrapper {
+            padding: 1rem !important;
+            border-radius: 18px !important;
+          }
           .showcase-gallery-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.75rem !important;
+          }
+          .showcase-card {
+            height: 135px !important;
+            border-radius: 12px !important;
           }
         }
       `}</style>

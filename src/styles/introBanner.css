@@ -101,34 +101,34 @@
 /* Responsive: Mobile */
 @media (max-width: 767px) {
   .welcome-banner-section {
-    padding: 2.5rem 0;
+    padding: 1.75rem 0;
   }
 
   .welcome-banner-card {
-    padding: 2.5rem 1.75rem 2.25rem;
-    border-radius: 20px;
+    padding: 1.75rem 1.25rem;
+    border-radius: 18px;
   }
 
   .welcome-banner-circle-decor {
-    width: 180px;
-    height: 180px;
-    top: -55px;
-    left: -55px;
+    width: 140px;
+    height: 140px;
+    top: -45px;
+    left: -45px;
   }
 
   .welcome-banner-grid {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
+    gap: 1.15rem;
   }
 
   .welcome-banner-heading {
-    font-size: 1.85rem;
-    line-height: 1.25;
+    font-size: 1.42rem;
+    line-height: 1.28;
   }
 
   .welcome-banner-p {
-    font-size: 0.95rem;
-    line-height: 1.65;
-    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 0.9rem;
   }
 }

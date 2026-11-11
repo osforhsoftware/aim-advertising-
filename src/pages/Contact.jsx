@@ -224,24 +224,9 @@ const Contact = () => {
           </div>
 
           {/* Form and Map Grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.1fr 0.9fr',
-              gap: '3.5rem',
-              alignItems: 'start'
-            }}
-          >
+          <div className="contact-main-grid">
             {/* Contact Form */}
-            <div
-              style={{
-                backgroundColor: 'var(--color-white)',
-                padding: '2.5rem',
-                borderRadius: 'var(--radius-md)',
-                boxShadow: 'var(--shadow-md)',
-                border: '1px solid var(--color-border)'
-              }}
-            >
+            <div className="contact-form-card">
               <span className="section-kicker">Get In Touch</span>
               <h2 className="section-heading" style={{ fontSize: '1.875rem', marginBottom: '1rem' }}>
                 Happy to Answer All Your Questions
@@ -280,7 +265,7 @@ const Contact = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                  <div className="contact-form-row">
                     <div>
                       <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-secondary)', marginBottom: '0.35rem' }}>
                         Your Name *
@@ -324,7 +309,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                  <div className="contact-form-row">
                     <div>
                       <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-secondary)', marginBottom: '0.35rem' }}>
                         Phone Number *

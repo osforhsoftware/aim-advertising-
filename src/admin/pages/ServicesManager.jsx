@@ -313,7 +313,7 @@ const ServicesManager = () => {
         </div>
 
         <div className="table-responsive">
-          <table className="admin-table">
+          <table className="admin-table mobile-card-table">
             <thead>
               <tr>
                 <th style={{ width: '60px' }}>Icon</th>
@@ -326,13 +326,13 @@ const ServicesManager = () => {
             </thead>
             <tbody>
               {loading ? (
-                <tr>
+                <tr className="table-state-row">
                   <td colSpan="6" style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}>
                     Loading services from MySQL database...
                   </td>
                 </tr>
               ) : filteredServices.length === 0 ? (
-                <tr>
+                <tr className="table-state-row">
                   <td colSpan="6" style={{ textAlign: 'center', padding: '2.5rem', color: '#94a3b8' }}>
                     No services found matching your search.
                   </td>
@@ -340,7 +340,7 @@ const ServicesManager = () => {
               ) : (
                 filteredServices.map((service) => (
                   <tr key={service.id}>
-                    <td>
+                    <td data-label="Icon">
                       <div style={{
                         width: '38px',
                         height: '38px',
@@ -358,10 +358,10 @@ const ServicesManager = () => {
                         )}
                       </div>
                     </td>
-                    <td>
+                    <td className="cell-main">
                       <div style={{ fontWeight: 600, color: '#001837' }}>{service.title}</div>
-                      <div style={{ fontSize: '0.75rem', color: '#64748b', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                        <span>/services/{service.slug}</span>
+                      <div style={{ fontSize: '0.75rem', color: '#64748b', display: 'flex', alignItems: 'center', gap: '0.25rem', flexWrap: 'wrap' }}>
+                        <span style={{ overflowWrap: 'anywhere' }}>/services/{service.slug}</span>
                         <a
                           href={`/services/${service.slug}`}
                           target="_blank"
@@ -373,12 +373,12 @@ const ServicesManager = () => {
                         </a>
                       </div>
                     </td>
-                    <td style={{ maxWidth: '320px', fontSize: '0.82rem', color: '#475569' }}>
+                    <td className="cell-block" data-label="Overview" style={{ maxWidth: '320px', fontSize: '0.82rem', color: '#475569' }}>
                       <p style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                         {service.short_description}
                       </p>
                     </td>
-                    <td>
+                    <td data-label="Status">
                       <button
                         type="button"
                         onClick={() => handleTogglePublish(service)}
@@ -396,11 +396,11 @@ const ServicesManager = () => {
                         )}
                       </button>
                     </td>
-                    <td style={{ fontWeight: 600, color: '#64748b' }}>
+                    <td data-label="Order" style={{ fontWeight: 600, color: '#64748b' }}>
                       {service.sort_order || 0}
                     </td>
-                    <td style={{ textAlign: 'right' }}>
-                      <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.4rem' }}>
+                    <td className="cell-actions" style={{ textAlign: 'right' }}>
+                      <div className="cell-action-group">
                         <button
                           type="button"
                           className="btn btn-secondary btn-sm"
@@ -408,6 +408,7 @@ const ServicesManager = () => {
                           title="Edit Service"
                         >
                           <Edit2 size={13} />
+                          <span className="mobile-btn-label">Edit</span>
                         </button>
                         <button
                           type="button"
@@ -416,6 +417,7 @@ const ServicesManager = () => {
                           title="Delete Service"
                         >
                           <Trash2 size={13} />
+                          <span className="mobile-btn-label">Delete</span>
                         </button>
                       </div>
                     </td>
@@ -442,7 +444,7 @@ const ServicesManager = () => {
             </div>
             <form onSubmit={handleSave}>
               <div className="modal-body">
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="admin-form-grid-2">
                   <div className="form-group">
                     <label className="form-label">Service Title *</label>
                     <input
@@ -506,7 +508,7 @@ const ServicesManager = () => {
                 </div>
 
                 {/* Image Uploads: Icon & Banner */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                <div className="admin-form-grid-2" style={{ gap: '1.25rem', background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
                   {/* Icon Field */}
                   <div className="form-group" style={{ marginBottom: 0 }}>
                     <label className="form-label" style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -649,7 +651,7 @@ const ServicesManager = () => {
 
                 {/* Gallery Images */}
                 <div className="form-group" style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
                     <label className="form-label" style={{ margin: 0 }}>
                       Service Gallery Images ({formState.gallery?.length || 0})
                     </label>
@@ -736,7 +738,7 @@ const ServicesManager = () => {
                   ></textarea>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+                <div className="service-publish-row">
                   <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                     <input
                       type="checkbox"

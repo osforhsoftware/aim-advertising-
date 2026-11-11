@@ -413,19 +413,42 @@ button {
 }
 
 @media (max-width: 640px) {
+  .home-services-grid {
+    gap: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+  .home-service-card {
+    min-height: 210px;
+    border-radius: 16px;
+  }
   .home-service-overlay {
     background: linear-gradient(
       to top,
       rgba(0, 24, 55, 0.98) 0%,
-      rgba(0, 24, 55, 0.88) 60%,
-      rgba(0, 24, 55, 0.2) 100%
+      rgba(0, 24, 55, 0.88) 58%,
+      rgba(0, 24, 55, 0.22) 100%
     );
   }
   .home-service-content {
-    padding: 2rem 1.5rem 1.75rem 1.5rem;
+    padding: 1.25rem 1.15rem;
   }
   .home-service-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.35rem;
+  }
+  .home-service-desc {
+    font-size: 0.83rem;
+    margin-bottom: 0.85rem;
+  }
+  .home-service-btn {
+    width: 34px;
+    height: 34px;
+  }
+  .btn-view-all-services {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -686,15 +709,27 @@ button {
 }
 
 @media (max-width: 600px) {
+  .fun-facts-section {
+    padding: 2.75rem 0 2.5rem;
+  }
+  .fun-facts-divider {
+    margin-bottom: 2rem;
+  }
   .fun-facts-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem 1.25rem;
   }
   .fun-fact-number-wrap {
-    font-size: 4.25rem;
+    font-size: 2.85rem;
+    margin-bottom: 0.65rem;
+    letter-spacing: -1px;
   }
   .fun-fact-suffix {
-    font-size: 3.5rem;
+    font-size: 2.25rem;
+  }
+  .fun-fact-desc {
+    font-size: 0.82rem;
+    line-height: 1.45;
   }
 }
 
@@ -749,5 +784,271 @@ button {
   border-radius: 50%;
   object-fit: cover;
   display: block;
+}
+
+/* ==========================================================================
+   Responsive Page Grids & Mobile Refinements
+   ========================================================================== */
+.site-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.about-mission-card {
+  background-color: var(--color-white);
+  padding: 3rem 2.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.contact-form-card {
+  background-color: var(--color-white);
+  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3.5rem;
+}
+
+.service-detail-hero-title {
+  color: #ffffff;
+  font-size: 2.75rem;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+}
+
+.service-detail-quote-form {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.services-cta-banner {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+@media (max-width: 991px) {
+  .about-intro-grid,
+  .contact-main-grid,
+  .service-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .pbmit-title-bar-wrapper {
+    min-height: 270px !important;
+  }
+
+  .pbmit-tbar-title {
+    font-size: 2.35rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section-padding {
+    padding: 2.25rem 0;
+  }
+
+  .section-title-wrap {
+    margin: 0 auto 1.75rem auto;
+  }
+
+  .section-kicker {
+    font-size: 0.78rem;
+  }
+
+  .section-heading {
+    font-size: 1.55rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    gap: 1.25rem;
+  }
+
+  .about-highlights-grid,
+  .contact-form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .about-mission-card,
+  .contact-form-card,
+  .service-detail-quote-form,
+  .services-cta-banner {
+    padding: 1.35rem;
+    border-radius: 16px;
+  }
+
+  .services-cta-banner h3 {
+    font-size: 1.35rem !important;
+  }
+
+  .service-detail-hero-title {
+    font-size: 1.65rem;
+  }
+
+  .pbmit-title-bar-wrapper {
+    min-height: 190px !important;
+  }
+
+  .pbmit-tbar-title {
+    font-size: 1.75rem !important;
+  }
+
+  .pbmit-breadcrumb {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.75rem !important;
+  }
+
+  /* Horizontal Swipeable Mobile Filter Pills */
+  .services-filter-tabs {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    gap: 0.5rem !important;
+    margin-top: 1.25rem !important;
+    padding: 0.25rem 0.25rem 0.5rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .services-filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services-filter-btn {
+    flex-shrink: 0;
+    padding: 0.45rem 0.95rem !important;
+    font-size: 0.74rem !important;
+  }
+
+  /* Compact Mobile-Native Service Cards */
+  .pbmit-service-style-1 .pbminfotech-post-item {
+    border-radius: 16px;
+  }
+
+  .pbmit-service-style-1 .pbmit-featured-wrapper {
+    height: 145px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .pbmit-service-style-1 .pbmit-service-btn-wrapper {
+    right: 16px;
+    padding: 5px 5px 0 5px;
+  }
+
+  .pbmit-service-style-1 .pbmit-service-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .pbmit-service-style-1 .pbmit-content-box {
+    padding: 1.15rem 1.15rem;
+  }
+
+  .pbmit-service-style-1 .pbmit-service-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .pbmit-service-style-1 .pbmit-service-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    margin-bottom: 0.85rem;
+  }
+
+  .pbmit-service-style-1 .pbmit-service-footer {
+    padding-top: 0.75rem;
+  }
+
+  /* Clean Inline Mobile Testimonials (No Awkward Notch Overlap) */
+  .pbmit-testimonial-style-2 {
+    padding: 1.35rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .pbmit-testimonial-style-2 p {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.15rem !important;
+  }
+
+  .pbmit-testimonial-style-2 .pbmit-featured-img-wrapper {
+    position: static;
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
+
+  .pbmit-testimonial-style-2 .pbmit-featured-img-wrapper::before,
+  .pbmit-testimonial-style-2 .pbmit-featured-img-wrapper::after {
+    display: none;
+  }
+
+  .pbmit-testimonial-style-2 .pbmit-featured-img-wrapper img {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #31a49c;
+  }
 }
 

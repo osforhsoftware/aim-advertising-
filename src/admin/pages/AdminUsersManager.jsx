@@ -251,7 +251,7 @@ const AdminUsersManager = () => {
         </div>
 
         <div className="table-responsive">
-          <table className="admin-table">
+          <table className="admin-table mobile-card-table">
             <thead>
               <tr>
                 <th>Administrator</th>
@@ -264,13 +264,13 @@ const AdminUsersManager = () => {
             </thead>
             <tbody>
               {loading ? (
-                <tr>
+                <tr className="table-state-row">
                   <td colSpan="6" style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}>
                     Loading administrator accounts...
                   </td>
                 </tr>
               ) : filteredUsers.length === 0 ? (
-                <tr>
+                <tr className="table-state-row">
                   <td colSpan="6" style={{ textAlign: 'center', padding: '2.5rem', color: '#94a3b8' }}>
                     No admin accounts found.
                   </td>
@@ -280,20 +280,20 @@ const AdminUsersManager = () => {
                   const isSelf = u.id === currentAdmin?.id;
                   return (
                     <tr key={u.id}>
-                      <td>
+                      <td className="cell-main">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                           <div className="user-avatar" style={{ width: '34px', height: '34px', fontSize: '0.85rem' }}>
                             {u.name.charAt(0).toUpperCase()}
                           </div>
-                          <div>
+                          <div style={{ minWidth: 0 }}>
                             <div style={{ fontWeight: 600, color: '#001837' }}>
                               {u.name} {isSelf && <span style={{ fontSize: '0.72rem', color: '#31a49c', fontWeight: 700 }}>(You)</span>}
                             </div>
-                            <div style={{ fontSize: '0.78rem', color: '#64748b' }}>{u.email}</div>
+                            <div style={{ fontSize: '0.78rem', color: '#64748b', overflowWrap: 'anywhere' }}>{u.email}</div>
                           </div>
                         </div>
                       </td>
-                      <td>
+                      <td data-label="Role">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                           <Shield size={14} color="#31a49c" />
                           <span style={{ textTransform: 'capitalize', fontWeight: 600 }}>
@@ -301,7 +301,7 @@ const AdminUsersManager = () => {
                           </span>
                         </div>
                       </td>
-                      <td>
+                      <td data-label="Status">
                         <button
                           type="button"
                           onClick={() => handleToggleStatus(u)}
@@ -326,7 +326,7 @@ const AdminUsersManager = () => {
                           )}
                         </button>
                       </td>
-                      <td style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                      <td data-label="Last Login" style={{ fontSize: '0.8rem', color: '#64748b' }}>
                         {u.last_login_at
                           ? new Date(u.last_login_at).toLocaleDateString('en-US', {
                               month: 'short',
@@ -336,15 +336,15 @@ const AdminUsersManager = () => {
                             })
                           : 'Never'}
                       </td>
-                      <td style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                      <td data-label="Created" style={{ fontSize: '0.8rem', color: '#64748b' }}>
                         {new Date(u.created_at).toLocaleDateString('en-US', {
                           month: 'short',
                           day: 'numeric',
                           year: 'numeric',
                         })}
                       </td>
-                      <td style={{ textAlign: 'right' }}>
-                        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.4rem' }}>
+                      <td className="cell-actions" style={{ textAlign: 'right' }}>
+                        <div className="cell-action-group">
                           <button
                             type="button"
                             className="btn btn-secondary btn-sm"
@@ -352,6 +352,7 @@ const AdminUsersManager = () => {
                             title="Reset Password"
                           >
                             <Key size={13} />
+                            <span className="mobile-btn-label">Reset</span>
                           </button>
                           <button
                             type="button"
@@ -360,6 +361,7 @@ const AdminUsersManager = () => {
                             title="Edit User"
                           >
                             <Edit2 size={13} />
+                            <span className="mobile-btn-label">Edit</span>
                           </button>
                           <button
                             type="button"
@@ -370,6 +372,7 @@ const AdminUsersManager = () => {
                             style={{ opacity: isSelf ? 0.4 : 1, cursor: isSelf ? 'not-allowed' : 'pointer' }}
                           >
                             <Trash2 size={13} />
+                            <span className="mobile-btn-label">Delete</span>
                           </button>
                         </div>
                       </td>

@@ -34,6 +34,7 @@ const Services = () => {
 
             {/* Filter Tabs */}
             <div
+              className="services-filter-tabs"
               style={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -46,6 +47,7 @@ const Services = () => {
                 <button
                   key={cat}
                   type="button"
+                  className="services-filter-btn"
                   onClick={() => setSelectedCategory(cat)}
                   style={{
                     padding: '0.5rem 1.25rem',
@@ -160,19 +162,7 @@ const Services = () => {
         }}
       >
         <div className="container">
-          <div
-            style={{
-              backgroundColor: 'var(--color-secondary)',
-              color: '#ffffff',
-              padding: '3rem',
-              borderRadius: 'var(--radius-lg)',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '2rem'
-            }}
-          >
+          <div className="services-cta-banner">
             <div>
               <span style={{ color: 'var(--color-primary)', fontWeight: 700, textTransform: 'uppercase', fontSize: '0.875rem' }}>
                 Need a Custom Solution?

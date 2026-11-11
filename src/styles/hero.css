@@ -211,21 +211,55 @@
 
 @media (max-width: 767px) {
   .hero-slider {
-    height: 480px;
+    height: 440px;
+    min-height: 440px;
+    max-height: none;
+    padding: 0;
+  }
+  .hero-slide {
+    align-items: center;
+    padding-bottom: 1.5rem;
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 18, 40, 0.82) 0%,
+      rgba(0, 24, 55, 0.88) 100%
+    );
+  }
+  .hero-content {
+    padding: 0 0.25rem;
+  }
+  .hero-kicker {
+    font-size: 0.72rem;
+    padding: 0.28rem 0.7rem;
+    margin-bottom: 0.75rem;
   }
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
   }
   .hero-description {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
   }
   .hero-nav-arrow {
     display: none;
   }
   .hero-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+  }
+  .hero-buttons .btn {
+    padding: 0.65rem 1.15rem;
+    font-size: 0.78rem;
+  }
+  .hero-dots {
+    bottom: 0.9rem;
   }
 }
 

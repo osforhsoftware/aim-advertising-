@@ -235,15 +235,78 @@
 }
 
 @media (max-width: 640px) {
+  .site-footer-wrapper {
+    padding: 1rem 0 0.75rem;
+  }
+  .footer-card-container {
+    padding: 0 16px 0.75rem;
+  }
   .footer-columns-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1rem;
   }
   .footer-main-card {
-    padding: 2.5rem 1.5rem 2rem;
-    border-radius: 20px;
+    padding: 1.5rem 1.25rem 1.35rem;
+    border-radius: 18px;
+    margin-bottom: 8px;
+  }
+  .col-brand {
+    grid-column: 1 / -1;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .footer-logo-img {
+    height: 40px;
+  }
+  .col-links,
+  .col-hours {
+    grid-column: span 1;
+  }
+  .useful-links-subgrid {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+  .col-contact {
+    grid-column: 1 / -1;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .footer-title {
+    font-size: 0.98rem;
+    margin-bottom: 0.6rem;
+  }
+  .sub-links-col {
+    gap: 0.45rem;
+  }
+  .footer-link,
+  .footer-info-text p {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+  .footer-copyright-bar {
+    font-size: 0.72rem;
+    line-height: 1.45;
+    padding: 0.5rem 3.25rem 0.5rem 0.5rem;
+    text-align: left;
   }
   .whatsapp-tooltip-pill {
     display: none;
+  }
+  .floating-widgets-wrapper {
+    bottom: 0.85rem;
+    right: 0.85rem;
+    gap: 0.5rem;
+  }
+  .floating-scroll-top-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .floating-whatsapp-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .floating-whatsapp-btn svg {
+    width: 22px;
+    height: 22px;
   }
 }

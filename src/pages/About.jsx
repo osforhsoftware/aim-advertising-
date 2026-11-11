@@ -19,14 +19,7 @@ const About = () => {
       {/* Company Introduction Section */}
       <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
         <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.1fr 0.9fr',
-              gap: '4rem',
-              alignItems: 'center'
-            }}
-          >
+          <div className="about-intro-grid">
             <div>
               <span className="section-kicker">Who We Are</span>
               <h2 className="section-heading" style={{ marginBottom: '1.5rem' }}>
@@ -40,7 +33,7 @@ const About = () => {
               </p>
 
               {/* Core Value highlights */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2rem' }}>
+              <div className="about-highlights-grid">
                 <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                   <ShieldCheck size={28} color="#31a49c" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
@@ -102,13 +95,8 @@ const About = () => {
           <div className="grid-2">
             {/* Mission Card */}
             <div
-              style={{
-                backgroundColor: 'var(--color-white)',
-                padding: '3rem 2.5rem',
-                borderRadius: 'var(--radius-md)',
-                boxShadow: 'var(--shadow-md)',
-                borderLeft: '5px solid var(--color-primary)'
-              }}
+              className="about-mission-card"
+              style={{ borderLeft: '5px solid var(--color-primary)' }}
             >
               <div
                 style={{
@@ -134,13 +122,8 @@ const About = () => {
 
             {/* Vision Card */}
             <div
-              style={{
-                backgroundColor: 'var(--color-white)',
-                padding: '3rem 2.5rem',
-                borderRadius: 'var(--radius-md)',
-                boxShadow: 'var(--shadow-md)',
-                borderLeft: '5px solid var(--color-secondary)'
-              }}
+              className="about-mission-card"
+              style={{ borderLeft: '5px solid var(--color-secondary)' }}
             >
               <div
                 style={{
